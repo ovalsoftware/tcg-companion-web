@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.tcgcompanion.app)",
+      "WebFetch(domain:apps.apple.com)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
