@@ -1585,19 +1585,17 @@ a.appPromoCta:visited {
 $vaultx-green: #85bd00;
 $vaultx-surface: #f6faed;
 
-/* Short inline affiliate note placed just above eBay-linked card grids */
+/* Inline affiliate note, placed quietly at the bottom of long eBay-linked pages */
 .affiliateNote {
-    font-size: 13px;
+    font-size: 12px;
     color: $text-secondary;
-    background: $surface-muted;
-    border: 1px solid $border-subtle;
-    border-radius: $radius-md;
-    padding: 10px 14px;
-    margin: 0 0 20px;
+    margin: 32px 0 16px;
     line-height: 1.5;
+    text-align: center;
+    opacity: 0.75;
 
-    strong { color: $text-primary; font-weight: 600; }
-    a { color: $accent-ink; }
+    a { color: $text-secondary; text-decoration: underline; }
+    a:hover { color: $accent-ink; }
 }
 
 .vaultxAdLabel {

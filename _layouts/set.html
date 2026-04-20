@@ -31,7 +31,6 @@ layout: content
 </section>
 
 {% if cards and cards.size > 0 %}
-{% include affiliateNote.html %}
 <section class="cardGridSection">
     <div class="cardGrid">
         {% for card in cards %}
@@ -67,6 +66,7 @@ layout: content
 {% endif %}
 
 {% include vaultxAd.html %}
+{% include affiliateNote.html %}
 
 <section class="setCta">
     <h2>Check {{ set_data.name }} card values</h2>

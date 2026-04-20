@@ -16,7 +16,7 @@ layout: content
 
 <section class="artistHero">
   <h1>{{ page.artist_name }}</h1>
-  <p class="artistHeroLede">Every Pok&eacute;mon TCG card illustrated by {{ page.artist_name }}. Tap any card to open live eBay listings.</p>
+  <p class="artistHeroLede">Every Pok&eacute;mon TCG card illustrated by {{ page.artist_name }}.</p>
   <div class="artistHeroStats">
     <div class="artistStat">
       <span class="artistStatValue">{{ total }}</span>
@@ -31,7 +31,6 @@ layout: content
 
 {% include appBanner.html %}
 {% include vaultxAd.html %}
-{% include affiliateNote.html %}
 
 <section class="cardGridSection">
   <div class="cardGrid">
@@ -60,6 +59,8 @@ layout: content
     {% endfor %}
   </div>
 </section>
+
+{% include affiliateNote.html %}
 
 <section class="setCta">
   <h2>Value any {{ page.artist_name }} card</h2>
