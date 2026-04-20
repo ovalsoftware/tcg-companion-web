@@ -404,7 +404,7 @@
   },
   {
     "setCode": "swsh11",
-    "name": "Pok\u00e9mon Go",
+    "name": "Pokémon Go",
     "series": "Sword & Shield",
     "totalCards": 78,
     "totalSecretCards": 10,
@@ -413,7 +413,7 @@
     "symbolUrl": "https://tcgcompanion.fra1.digitaloceanspaces.com/images/sword%26shield/swsh11/symbol.png",
     "logoUrl": "https://tcgcompanion.fra1.digitaloceanspaces.com/images/sword%26shield/swsh11/logo.png",
     "hasReverseHolos": true,
-    "slug": "pok-mon-go"
+    "slug": "pokemon-go"
   },
   {
     "setCode": "swsh10",
@@ -1444,7 +1444,7 @@
   },
   {
     "setCode": "hgss4",
-    "name": "HS\u2014Triumphant",
+    "name": "HS—Triumphant",
     "series": "HeartGold & SoulSilver",
     "totalCards": 102,
     "totalSecretCards": 1,
@@ -1457,7 +1457,7 @@
   },
   {
     "setCode": "hgss3",
-    "name": "HS\u2014Undaunted",
+    "name": "HS—Undaunted",
     "series": "HeartGold & SoulSilver",
     "totalCards": 90,
     "totalSecretCards": 1,
@@ -1470,7 +1470,7 @@
   },
   {
     "setCode": "hgss2",
-    "name": "HS\u2014Unleashed",
+    "name": "HS—Unleashed",
     "series": "HeartGold & SoulSilver",
     "totalCards": 95,
     "totalSecretCards": 1,
@@ -1509,7 +1509,7 @@
   },
   {
     "setCode": "ru1",
-    "name": "Pok\u00e9mon Rumble",
+    "name": "Pokémon Rumble",
     "series": "Other",
     "totalCards": 16,
     "totalSecretCards": 0,
@@ -1518,7 +1518,7 @@
     "symbolUrl": "https://images.pokemontcg.io/ru1/symbol.png",
     "logoUrl": "https://images.pokemontcg.io/ru1/logo.png",
     "hasReverseHolos": false,
-    "slug": "pok-mon-rumble"
+    "slug": "pokemon-rumble"
   },
   {
     "setCode": "pl4",

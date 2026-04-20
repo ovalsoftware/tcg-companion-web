@@ -140,6 +140,10 @@ Morii doesn't often get the headline "chase card" slot &mdash; that tends to go 
 
 Her cards are usually affordable &mdash; even her secret rare modern work typically lands in the $20&ndash;$100 PSA 10 range &mdash; which makes building a Morii collection approachable.
 
+## Every Yuka Morii card in the English TCG
+
+Want the full catalogue? [See every Yuka Morii card](/artists/yuka-morii/) &mdash; grouped by set, newest first, with images and live eBay listings.
+
 ## How to find Yuka Morii cards in your collection
 
 The artist credit appears in small text at the bottom of every Pokémon card, typically reading "Illustrator Yuka Morii" or just "Yuka Morii." Scanning with [TCG Companion](/pokemon-card-scanner/) pulls the artist name automatically along with set, number, rarity and variant &mdash; so you can quickly find every Morii card across your collection.

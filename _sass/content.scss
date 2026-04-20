@@ -1130,6 +1130,215 @@ a.primaryCta:hover {
     }
 }
 
+/* ---------- Artist pages ---------- */
+
+.artistHero {
+    text-align: center;
+    padding: 24px 0 32px;
+
+    h1 {
+        font-size: 40px;
+        letter-spacing: -0.025em;
+        margin: 8px 0 14px;
+
+        @media (max-width: 600px) { font-size: 30px; }
+    }
+}
+
+.artistHeroBreadcrumb {
+    font-size: 13px;
+    color: $text-secondary;
+    margin: 0;
+
+    a {
+        color: $accent-ink;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+}
+
+.artistHeroLede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: $text-secondary;
+    max-width: 640px;
+    margin: 0 auto 12px;
+}
+
+.artistHeroMeta {
+    font-size: 14px;
+    color: $text-secondary;
+    margin: 0;
+}
+
+.artistSetGroups {
+    margin: 32px 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.artistSetBlock {
+    .cardGrid { margin-top: 16px; }
+}
+
+.artistSetHeader {
+    border-bottom: 1px solid $border-subtle;
+    padding-bottom: 14px;
+}
+
+.artistSetHeaderMeta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    h2 {
+        margin: 0 0 4px;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+
+        a {
+            color: $text-primary;
+            text-decoration: none;
+        }
+        a:hover {
+            color: $accent-ink;
+        }
+    }
+    p {
+        margin: 0;
+        color: $text-secondary;
+        font-size: 14px;
+    }
+}
+
+.artistSetLogo {
+    max-height: 46px;
+    max-width: 120px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.artistSetSymbol {
+    max-height: 40px;
+    max-width: 40px;
+}
+
+/* ---------- Artists index ---------- */
+
+.artistsIndexHero {
+    text-align: center;
+    max-width: 780px;
+    margin: 16px auto 40px;
+
+    h1 {
+        font-size: 42px;
+        letter-spacing: -0.025em;
+        margin: 0 0 16px;
+
+        @media (max-width: 600px) { font-size: 30px; }
+    }
+    p {
+        font-size: 17px;
+        line-height: 1.55;
+        color: $text-secondary;
+        margin: 0 auto 10px;
+    }
+}
+
+.artistsIndexSub {
+    font-size: 14px !important;
+    color: $text-secondary;
+}
+
+.artistsFeatured {
+    margin: 40px 0 56px;
+
+    h2 {
+        font-size: 28px;
+        letter-spacing: -0.02em;
+        margin: 0 0 6px;
+    }
+}
+
+.artistsFeaturedSub {
+    color: $text-secondary;
+    margin: 0 0 24px;
+    font-size: 14px;
+}
+
+.artistsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.artistCard {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    text-decoration: none;
+    color: $text-primary;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px -18px rgba(0, 0, 0, 0.2);
+        border-color: darken($border-subtle, 6%);
+        color: $text-primary;
+    }
+}
+
+.artistCardName {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.artistCardMeta {
+    font-size: 13px;
+    color: $text-secondary;
+}
+
+.artistsOthers {
+    margin: 56px 0 32px;
+
+    h2 {
+        font-size: 24px;
+        letter-spacing: -0.02em;
+        margin: 0 0 6px;
+    }
+}
+
+.artistsOthersSub {
+    color: $text-secondary;
+    margin: 0 0 20px;
+    font-size: 14px;
+}
+
+.artistsOtherList {
+    font-size: 14px;
+    color: $text-secondary;
+    line-height: 2;
+
+    .artistOtherItem {
+        display: inline-block;
+        margin-right: 18px;
+        white-space: nowrap;
+
+        small {
+            color: $text-secondary;
+            opacity: 0.6;
+            margin-left: 2px;
+        }
+    }
+}
+
 /* ---------- VaultX binder affiliate ad ---------- */
 
 $vaultx-green: #85bd00;

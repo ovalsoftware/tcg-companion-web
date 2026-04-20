@@ -1,0 +1,104 @@
+---
+layout: content
+---
+
+{% assign cards = site.data.artist_cards[page.artist_slug] %}
+{% assign total = cards | size %}
+
+{% comment %} Group cards by setSlug, preserving pre-sorted order (newest set first) {% endcomment %}
+{% assign groups = "" | split: "," %}
+{% assign current_slug = "__none__" %}
+{% assign current_group = "" | split: "," %}
+{% for c in cards %}
+  {% if c.setSlug != current_slug %}
+    {% if current_group.size > 0 %}{% assign groups = groups | push: current_group %}{% endif %}
+    {% assign current_slug = c.setSlug %}
+    {% assign current_group = "" | split: "," %}
+  {% endif %}
+  {% assign current_group = current_group | push: c %}
+{% endfor %}
+{% if current_group.size > 0 %}{% assign groups = groups | push: current_group %}{% endif %}
+
+<section class="artistHero">
+  <p class="artistHeroBreadcrumb"><a href="{{ '/artists/' | relative_url }}">Artists</a></p>
+  <h1>{{ page.artist_name }}</h1>
+  <p class="artistHeroLede">
+    Every Pok&eacute;mon TCG card illustrated by <strong>{{ page.artist_name }}</strong> &mdash; {{ total }} cards across {{ groups.size }} sets, newest first. Tap any card to open live eBay listings.
+  </p>
+  <p class="artistHeroMeta">
+    Want the current market price? <a href="{{ '/pokemon-card-value-checker/' | relative_url }}">Scan it with TCG Companion</a> &mdash; ungraded plus every tracked graded tier in under a second.
+  </p>
+</section>
+
+{% include vaultxAd.html %}
+
+<section class="artistSetGroups">
+  {% for group in groups %}
+    {% assign first_card = group[0] %}
+    {% assign set_slug = first_card.setSlug %}
+    {% assign set_data = nil %}
+    {% for s in site.data.sets %}{% if s.slug == set_slug %}{% assign set_data = s %}{% break %}{% endif %}{% endfor %}
+
+    <div class="artistSetBlock">
+      <div class="artistSetHeader">
+        <div class="artistSetHeaderMeta">
+          {% if set_data.logoUrl %}
+            <img class="artistSetLogo" src="{{ set_data.logoUrl }}" alt="{{ set_data.name }}" loading="lazy"
+                 {% if set_data.symbolUrl %}onerror="this.onerror=null;this.src='{{ set_data.symbolUrl }}';this.classList.add('artistSetSymbol');"{% endif %}>
+          {% elsif set_data.symbolUrl %}
+            <img class="artistSetLogo artistSetSymbol" src="{{ set_data.symbolUrl }}" alt="{{ set_data.name }}" loading="lazy">
+          {% endif %}
+          <div>
+            <h2><a href="{{ '/sets/' | append: set_slug | append: '/' | relative_url }}">{{ first_card.setName }}</a></h2>
+            <p>{{ group.size }} card{% if group.size != 1 %}s{% endif %} by {{ page.artist_name }}{% if set_data.releaseDateFormatted %} &middot; released {{ set_data.releaseDateFormatted }}{% endif %}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cardGrid">
+        {% for card in group %}
+          {% assign kw = card.name | append: ' ' | append: card.number | append: ' ' | append: first_card.setName | append: ' pokemon' | url_encode %}
+          {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339039133&mkevt=1&customid=web{% endcapture %}
+          <article class="cardTile">
+            <a class="cardTileLink" href="{{ ebay_href }}" rel="sponsored nofollow noopener" target="_blank" aria-label="{{ card.name }} {{ card.number }} by {{ page.artist_name }} — view on eBay">
+              <div class="cardTileImageWrap">
+                {% if card.imageUrl %}
+                <img class="cardTileImage" src="{{ card.imageUrl }}" alt="{{ card.name }} #{{ card.number }} by {{ page.artist_name }}" loading="lazy">
+                {% else %}
+                <div class="cardTilePlaceholder">No image</div>
+                {% endif %}
+              </div>
+              <div class="cardTileInfo">
+                <h3 class="cardTileName">{{ card.name }}</h3>
+                <p class="cardTileMeta">
+                  <span class="cardTileNumber">#{{ card.number }}</span>
+                  {% if card.rarity %}<span class="cardTileRarity">{{ card.rarity }}</span>{% endif %}
+                </p>
+                <span class="cardTileBuy">View on eBay &rarr;</span>
+              </div>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+<section class="setCta">
+  <h2>Value any {{ page.artist_name }} card</h2>
+  <p>
+    Scan a card with your phone and TCG Companion shows the current market price plus every tracked graded tier in seconds.
+  </p>
+  <a class="primaryCta" href="{{ site.appstore_link }}">
+    <i class="fab fa-apple"></i>
+    <span>
+      <span class="primaryCtaSmall">Download on the</span>
+      <span class="primaryCtaLarge">App Store</span>
+    </span>
+  </a>
+  <p class="setCtaSub">
+    <a href="{{ '/artists/' | relative_url }}">Browse all artists</a>
+    &middot;
+    <a href="{{ '/sets/' | relative_url }}">Browse all sets</a>
+  </p>
+</section>
