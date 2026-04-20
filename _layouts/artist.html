@@ -39,7 +39,7 @@ layout: content
               <span class="cardTileNumber">#{{ card.number }}</span>
               {% if card.rarity %}<span class="cardTileRarity">{{ card.rarity }}</span>{% endif %}
             </p>
-            <p class="cardTileSet"><a href="{{ '/sets/' | append: card.setSlug | append: '/' | relative_url }}">{{ card.setName }}</a></p>
+            <p class="cardTileSet">{{ card.setName }}</p>
           </div>
         </a>
       </article>
