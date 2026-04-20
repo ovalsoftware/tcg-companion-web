@@ -39,6 +39,9 @@ benefits:
   - icon: layer-group
     title: Collection value
     description: Add cards to your collection and TCG Companion rolls them up into a running value based on current prices.
+  - icon: clone
+    title: Variants &amp; quantities
+    description: Log multiple copies and track each variant separately &mdash; standard, reverse holo, holo, 1st edition &mdash; so your totals actually reflect what you own.
   - icon: file-export
     title: CSV export
     description: Premium users can export their collection to CSV with card details and current values.

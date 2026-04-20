@@ -39,6 +39,9 @@ benefits:
   - icon: layer-group
     title: Add to collection
     description: Save scanned cards to your collection and TCG Companion tracks the total value automatically.
+  - icon: clone
+    title: Variants &amp; quantities
+    description: Every scan lets you pick the variant (standard, reverse holo, holo, 1st edition, promo) and log multiple copies &mdash; so duplicates and variants stay separate in your collection.
   - icon: language
     title: Japanese cards
     description: Japanese Pokémon cards are supported in-app with their own price lookups.

@@ -16,7 +16,7 @@ description: Browse every English Pokémon TCG set with full card lists, release
 </section>
 
 {% assign sets_by_series = site.data.sets | group_by: 'series' %}
-{% assign series_order = "Scarlet & Violet,Sword & Shield,Sun & Moon,XY,Black & White,HeartGold & SoulSilver,Platinum,Diamond & Pearl,EX,E-Card,Neo,Gym,Base,POP,NP,Other" | split: "," %}
+{% assign series_order = "Mega Evolution,Scarlet & Violet,Sword & Shield,Sun & Moon,XY,Black & White,HeartGold & SoulSilver,Platinum,Diamond & Pearl,EX,E-Card,Neo,Gym,Base,POP,NP,Other" | split: "," %}
 
 {% include vaultxAd.html %}
 

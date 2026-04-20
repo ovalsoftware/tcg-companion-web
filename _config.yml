@@ -73,6 +73,10 @@ features                                  :
     description                           : Every card you scan rolls up into a running collection value. Export to CSV, filter by rarity, and track gains over time.
     fontawesome_icon_name                 : layer-group
 
+  - title                                 : Variants & Quantities
+    description                           : Log multiple copies and track each variant separately — standard, reverse holo, holo, 1st edition, promo — so duplicates and variants don't get lumped together.
+    fontawesome_icon_name                 : clone
+
   - title                                 : eBay Sold Listings
     description                           : Every card links straight to live sold listings in your region so you can verify prices with real, recent sales before you buy or sell.
     fontawesome_icon_name                 : tag

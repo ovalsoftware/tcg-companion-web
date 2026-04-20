@@ -39,6 +39,9 @@ benefits:
   - icon: layer-group
     title: Add to collection
     description: Save the scanned card to your collection so the total value stays up to date.
+  - icon: clone
+    title: Variants &amp; quantities
+    description: Track each variant separately (standard, reverse holo, holo, 1st edition) and log multiple copies so your collection reflects what you actually own.
 
 steps_title: How the price scanner works
 steps:
