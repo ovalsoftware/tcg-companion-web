@@ -1,0 +1,19 @@
+# Jekyll build output + caches
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Local-only Bundler state (Gemfile.local is checked in for local dev, lockfile is not)
+Gemfile.local.lock
+vendor/
+.bundle/
+
+# Node tooling (scripts/generate.js runs on plain node; lockfile not needed)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
