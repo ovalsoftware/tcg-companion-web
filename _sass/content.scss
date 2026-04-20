@@ -1177,17 +1177,240 @@ a.primaryCta:hover {
 }
 
 .artistHeroLede {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.55;
     color: $text-secondary;
     max-width: 640px;
-    margin: 0 auto 12px;
+    margin: 0 auto 20px;
 }
 
-.artistHeroMeta {
-    font-size: 14px;
-    color: $text-secondary;
+.artistHeroStats {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
     margin: 0;
+}
+
+.artistStat {
+    background: $surface-muted;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    padding: 10px 18px;
+    min-width: 96px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.artistStatValue {
+    font-size: 22px;
+    font-weight: 700;
+    color: $text-primary;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+.artistStatLabel {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $text-secondary;
+    font-weight: 600;
+}
+
+.pageBreadcrumb {
+    font-size: 13px;
+    color: $text-secondary;
+    margin: -8px 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+
+    a {
+        color: $accent-ink;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+    .pageBreadcrumbCurrent {
+        color: $text-secondary;
+        font-weight: 500;
+    }
+    span[aria-hidden] {
+        opacity: 0.5;
+    }
+}
+
+/* ---------- Sitewide app promo banner ---------- */
+
+.appPromo {
+    margin: 36px 0;
+}
+
+.appPromoCard {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+    background:
+        radial-gradient(900px 350px at 90% 0%, rgba($accent-color, 0.28), transparent 60%),
+        radial-gradient(500px 300px at 0% 100%, rgba(180, 100, 255, 0.18), transparent 70%),
+        linear-gradient(160deg, #13131a 0%, #1c1c28 100%);
+    color: #fff;
+    box-shadow:
+        0 24px 48px -20px rgba(0, 0, 0, 0.45),
+        0 8px 18px -12px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+
+    @media (max-width: 820px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.appPromoMain {
+    padding: 28px 28px 26px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 22px;
+
+    @media (max-width: 640px) {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 14px 16px;
+        padding: 22px 22px 24px;
+    }
+}
+
+.appPromoIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    box-shadow:
+        0 10px 18px -6px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+    align-self: center;
+
+    @media (max-width: 640px) { grid-row: span 2; }
+}
+
+.appPromoText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+
+    p { margin: 0; color: inherit; }
+}
+
+.appPromoName {
+    color: #fff;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.015em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.appPromoBadge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.appPromoRating {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    i { color: #ffd447; font-size: 12px; }
+    span { opacity: 0.85; }
+}
+
+.appPromoPitch {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+    line-height: 1.45;
+    max-width: 440px;
+}
+
+a.appPromoCta,
+a.appPromoCta:link,
+a.appPromoCta:visited {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    background: #fff;
+    color: #000;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 10px 24px -10px rgba(255, 255, 255, 0.25);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    white-space: nowrap;
+
+    i {
+        font-size: 24px;
+        line-height: 1;
+        color: #000;
+    }
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 14px 30px -10px rgba(255, 255, 255, 0.35);
+    }
+
+    @media (max-width: 640px) {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+}
+
+.appPromoCtaSmall {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    color: inherit;
+    line-height: 1;
+}
+
+.appPromoCtaLarge {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-top: 2px;
+    color: inherit;
+    line-height: 1;
+}
+
+.appPromoScreenshot {
+    width: 180px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    align-self: stretch;
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
+
+    @media (max-width: 820px) { display: none; }
 }
 
 .artistSetGroups {
@@ -1361,6 +1584,33 @@ a.primaryCta:hover {
 
 $vaultx-green: #85bd00;
 $vaultx-surface: #f6faed;
+
+/* Short inline affiliate note placed just above eBay-linked card grids */
+.affiliateNote {
+    font-size: 13px;
+    color: $text-secondary;
+    background: $surface-muted;
+    border: 1px solid $border-subtle;
+    border-radius: $radius-md;
+    padding: 10px 14px;
+    margin: 0 0 20px;
+    line-height: 1.5;
+
+    strong { color: $text-primary; font-weight: 600; }
+    a { color: $accent-ink; }
+}
+
+.vaultxAdLabel {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $text-secondary;
+    margin-bottom: 6px;
+    opacity: 0.7;
+}
 
 .vaultxAd {
     margin: 48px 0;

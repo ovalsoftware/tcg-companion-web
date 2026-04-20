@@ -6,18 +6,32 @@ layout: content
 {% assign total = cards | size %}
 {% assign set_slugs = cards | map: 'setSlug' | uniq %}
 
+<nav class="pageBreadcrumb" aria-label="Breadcrumb">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <a href="{{ '/artists/' | relative_url }}">Artists</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span class="pageBreadcrumbCurrent">{{ page.artist_name }}</span>
+</nav>
+
 <section class="artistHero">
-  <p class="artistHeroBreadcrumb"><a href="{{ '/artists/' | relative_url }}">Artists</a></p>
   <h1>{{ page.artist_name }}</h1>
-  <p class="artistHeroLede">
-    Every Pok&eacute;mon TCG card illustrated by <strong>{{ page.artist_name }}</strong> &mdash; {{ total }} cards across {{ set_slugs.size }} sets. Tap any card to open live eBay listings.
-  </p>
-  <p class="artistHeroMeta">
-    Want the current market price? <a href="{{ '/pokemon-card-value-checker/' | relative_url }}">Scan it with TCG Companion</a> &mdash; ungraded plus every tracked graded tier in under a second.
-  </p>
+  <p class="artistHeroLede">Every Pok&eacute;mon TCG card illustrated by {{ page.artist_name }}. Tap any card to open live eBay listings.</p>
+  <div class="artistHeroStats">
+    <div class="artistStat">
+      <span class="artistStatValue">{{ total }}</span>
+      <span class="artistStatLabel">cards</span>
+    </div>
+    <div class="artistStat">
+      <span class="artistStatValue">{{ set_slugs.size }}</span>
+      <span class="artistStatLabel">sets</span>
+    </div>
+  </div>
 </section>
 
+{% include appBanner.html %}
 {% include vaultxAd.html %}
+{% include affiliateNote.html %}
 
 <section class="cardGridSection">
   <div class="cardGrid">

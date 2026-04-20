@@ -71,11 +71,15 @@
 				<ul>
 					<li><a href="{{ '/privacy/' | relative_url }}">Privacy policy</a></li>
 					<li><a href="{{ '/terms/' | relative_url }}">Terms of service</a></li>
+					<li><a href="{{ '/disclosure/' | relative_url }}">Affiliate disclosure</a></li>
 				</ul>
 			</div>
 		</nav>
 		<div class="siteFooterLegal">
-			<p>&copy; {{ site.time | date: '%Y' }} {{ site.your_name }}. Pok&eacute;mon and its trademarks are &copy; of Nintendo, Game Freak and The Pok&eacute;mon Company. This site is not affiliated with or endorsed by them.</p>
+			<p>
+				<strong>Affiliate disclosure:</strong> As an eBay Partner Network affiliate and a Vault X affiliate, TCG Companion earns from qualifying purchases. The price you pay doesn't change &mdash; <a href="{{ '/disclosure/' | relative_url }}">full disclosure</a>.
+			</p>
+			<p>&copy; {{ site.time | date: '%Y' }} {{ site.your_name }}. Pok&eacute;mon and its trademarks are &copy; of Nintendo, Game Freak and The Pok&eacute;mon Company. Card images are used for editorial and identification purposes only. This site is not produced by, endorsed by, or affiliated with Nintendo, The Pok&eacute;mon Company, Game Freak, Creatures, or Wizards of the Coast.</p>
 			<p class="siteFooterMade">Made by {% if site.your_link %}<a href="{{ site.your_link }}">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}.</p>
 		</div>
 	</div>

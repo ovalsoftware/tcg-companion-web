@@ -7,69 +7,93 @@ include_in_footer: true
 
 **Privacy Policy**
 
-Trading Card App Ltd built the TCG Companion app as a Freemium app. This SERVICE is provided by Trading Card App Ltd at no cost and is intended for use as is.
+_Last updated: 20 April 2026_
 
-This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+This Privacy Policy covers two things operated by **Trading Card Apps Ltd**:
 
-If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
+1. **This website** at `tcgcompanion.app`
+2. **The TCG Companion iOS app**
 
-The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at TCG Companion unless otherwise defined in this Privacy Policy.
+Different information is collected in each, so they're covered separately below.
 
-## Information Collection and Use
+---
 
-For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained on your device and is not collected by us in any way.
+## This website (tcgcompanion.app)
 
-The app does use third party services that may collect information used to identify you.
+This site is mostly editorial content: set lists, card pages, blog posts, and feature pages. It does not require an account, does not collect personal information, and does not ask you to log in.
 
-Link to privacy policy of third party service providers used by the app:
+### What we use
 
-* [AdMob](https://support.google.com/admob/answer/6128543?hl=en)
-* [Google Analytics for Firebase](https://firebase.google.com/policies/analytics)
-* [Firebase Crashlytics](https://firebase.google.com/support/privacy/)
-* [One Signal](https://onesignal.com/privacy_policy)
-* [RevenueCat](https://www.revenuecat.com/privacy)
+* **Simple Analytics** — [simpleanalytics.com](https://simpleanalytics.com/) — a privacy-first, cookie-free analytics service. It records page views, referrer, country (derived from IP, not stored), and browser type in aggregate. It does **not** use cookies, does **not** fingerprint, does **not** track you across sites, and is GDPR-, PECR-, CCPA- and COPPA-compliant by default. No personally identifiable information is stored.
+* **eBay Partner Network** — when you click an eBay link on this site, eBay sets its own cookies under `ebay.com` to attribute the referral and, if you buy something, credit us with a small commission. These cookies are controlled by eBay and subject to [eBay's own privacy policy](https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260). No cookies are set by us for affiliate tracking.
+* **Vault X affiliate link** — clicking the Vault X banner redirects you to `vaultx.com`, which may set its own referral cookies. See the [Vault X privacy policy](https://www.vaultx.com/pages/privacy-policy).
+* **Font Awesome CDN** — icons are served from `use.fontawesome.com`. No tracking, but your browser makes an HTTP request to their CDN.
+* **Card and set image CDNs** — card images are served from our own CDN (`tcgcompanion.fra1.digitaloceanspaces.com`, operated by DigitalOcean). Set logos and symbols are served locally from this site, or as a fallback from Firebase Storage (Google) for a handful of older sets. Your browser makes image requests to these hosts when you view card pages.
 
-## Log Data
+### What we don't do
 
-We want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol ("IP") address, device name, operating system version, the configuration of the app when utilizing our Service, the time and date of your use of the Service, and other statistics.
+* We do **not** set any first-party cookies on this website.
+* We do **not** use Google Analytics, Facebook Pixel, or any tracker-heavy analytics on the web.
+* We do **not** sell or share browsing data.
+* We do **not** require an account to view set lists, blog posts, artist pages, or card data.
 
-## Cookies
+### Your choices
 
-Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+Since Simple Analytics is cookie-free and anonymous, there's nothing to opt out of at the cookie level. If you want to block it anyway, most privacy-focused browsers (Brave, Firefox with strict mode) and tracker blockers (uBlock Origin) will already do so.
 
-This Service does not use these "cookies" explicitly. However, the app may use third party code and libraries that use "cookies" to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
+eBay cookies can be cleared or blocked via your browser's cookie settings, or by blocking third-party cookies before clicking eBay links.
 
-## Service Providers
+---
 
-We may employ third-party companies and individuals due to the following reasons:
+## The TCG Companion iOS app
 
-* To facilitate our Service;
-* To provide the Service on our behalf;
-* To perform Service-related services; or
-* To assist us in analyzing how our Service is used.
+The app lets you scan, catalogue and price Pokémon cards. Some features require an account and some collect usage data, as described here.
 
-We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+### Affiliate links in the app
 
-## Security
+When you tap an eBay link from inside the TCG Companion app &mdash; for example, the "Check on eBay" button on a card's value screen &mdash; the URL is tagged with our eBay Partner Network affiliate ID. If you buy something on eBay within the cookie window that follows, TCG Companion earns a small commission from eBay. **The price you pay on eBay doesn't change**, and the commission comes from eBay's own margin. This applies to every eBay link surfaced inside the app.
 
-We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+This is the same arrangement used on the website and is covered by the site's [Affiliate Disclosure](/disclosure/).
 
-## Links to Other Sites
+### Information collection and use
 
-This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+For a better experience, while using the app, we may require you to provide us with certain personally identifiable information (e.g. email address for account creation). Most collection data — scanned cards, quantities, variants — is stored on your device and synchronised to our server under your account.
 
-## Children's Privacy
+The app uses third-party services that may collect information used to identify you:
 
-These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
+* [Google Analytics for Firebase](https://firebase.google.com/policies/analytics) — usage analytics
+* [Firebase Crashlytics](https://firebase.google.com/support/privacy/) — crash reporting
+* [OneSignal](https://onesignal.com/privacy_policy) — push notifications
+* [RevenueCat](https://www.revenuecat.com/privacy) — subscription management
+* [PriceCharting](https://www.pricecharting.com/) — market price data lookup
+* **eBay Partner Network** — affiliate tracking when you tap through to eBay listings from inside the app
 
-## Changes to This Privacy Policy
+### Log data
 
-We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
+Whenever you use the app, in the case of an error we collect data (via third-party products) including your device IP address, device name, operating system version, app configuration, time and date of use, and other diagnostic statistics.
 
-This policy is effective as of 2021-06-06
+### Cookies in the app
 
-## Contact Us
+The app itself does not explicitly use cookies. However, third-party code and libraries it integrates with may use cookies to provide their services. You have the option to accept or refuse these cookies at the OS level.
 
-If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at pokemon.collector.app@gmail.com.
+### Security
 
-This privacy policy page was created at [privacypolicytemplate.net](https://privacypolicytemplate.net) and modified/generated by [App Privacy Policy Generator](https://app-privacy-policy-generator.nisrulz.com/)
+We value your trust in providing your personal information and use commercially acceptable means to protect it. No method of transmission over the internet or electronic storage is 100% secure, and absolute security cannot be guaranteed.
+
+---
+
+## Links to other sites
+
+Both the website and the app contain links to third-party sites (notably eBay, Vault X, and external CDNs). These are not operated by us and we are not responsible for their content or privacy practices. Review their own privacy policies before interacting.
+
+## Children's privacy
+
+Our services are not directed at children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you believe a child has provided us with personal information, contact us and we will delete it.
+
+## Changes to this policy
+
+We may update this Privacy Policy from time to time. Material changes will be reflected on this page with an updated "Last updated" date.
+
+## Contact
+
+Questions about this Privacy Policy? Email **<support@tradingcardapps.com>**.

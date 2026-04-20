@@ -1,0 +1,31 @@
+{% comment %}
+  Sitewide app promo banner. Drop in via {% include appBanner.html %}.
+  Visual: dark premium gradient, icon, app name + star rating, one-line pitch,
+  App Store button, small free-download badge, subtle screenshot peek on wide screens.
+{% endcomment %}
+<aside class="appPromo" aria-label="TCG Companion for iOS">
+  <div class="appPromoCard">
+    <div class="appPromoMain">
+      <img class="appPromoIcon" src="{{ '/assets/app-icon-512.png' | relative_url }}" alt="">
+      <div class="appPromoText">
+        <p class="appPromoName">
+          TCG Companion
+          <span class="appPromoBadge">Free</span>
+        </p>
+        <p class="appPromoRating" aria-label="Rated 4.8 out of 5 on the App Store">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <span>4.8 on the App Store</span>
+        </p>
+        <p class="appPromoPitch">Scan any Pok&eacute;mon card with your phone. See the market price and every graded tier in under a second.</p>
+      </div>
+      <a class="appPromoCta" href="{{ site.appstore_link | default: site.appstore_link_fallback }}" rel="noopener">
+        <i class="fab fa-apple"></i>
+        <span>
+          <span class="appPromoCtaSmall">Download on the</span>
+          <span class="appPromoCtaLarge">App Store</span>
+        </span>
+      </a>
+    </div>
+    <img class="appPromoScreenshot" src="{{ '/assets/app/app-1.jpg' | relative_url }}" alt="TCG Companion app screenshot" aria-hidden="true">
+  </div>
+</aside>

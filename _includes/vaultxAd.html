@@ -6,7 +6,8 @@
 
 {% assign variant = include.variant | default: 'block' %}
 
-<aside class="vaultxAd vaultxAd--{{ variant }}">
+<aside class="vaultxAd vaultxAd--{{ variant }}" aria-label="Advertisement">
+  <span class="vaultxAdLabel">Ad &middot; affiliate link</span>
   <a class="vaultxAdLink" href="https://www.vaultx.com/tcgcompanion" rel="sponsored noopener" target="_blank" aria-label="Vault X binders — 10% off with code TCGCOMPANION">
     <div class="vaultxAdLogoWrap">
       <img class="vaultxAdLogo" src="{{ '/assets/brand/vaultx-black-green.svg' | relative_url }}" alt="Vault X">
