@@ -1,61 +1,74 @@
-<footer>
-	{% if site.your_name %}
-	<p class="footerText">Made by {% if site.your_link %}<a href="{{ site.your_link }}">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}{% if site.your_city %} in {{ site.your_city }}{% endif %}</p>
-	{% endif %}
-	<div class="footerIcons">
-
-		{% if site.facebook_username %}
-			<a href="https://facebook.com/{{ site.facebook_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-facebook fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.twitter_username %}
-			<a href="https://twitter.com/{{ site.twitter_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-twitter fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.instagram_username %}
-			<a href="https://instagram.com/{{ site.instagram_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-instagram fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.github_username %}
-			<a href="https://github.com/{{ site.github_username }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fab fa-github fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-		{% if site.email_address %}
-			<a href="mailto:{{ site.email_address }}">
-				<span class="fa-stack fa-1x">
-					<i class="socialIconBack fas fa-circle fa-stack-2x"></i>
-					<i class="socialIconTop fas fa-envelope fa-stack-1x"></i>
-				</span>
-			</a>
-		{% endif %}
-
-	</div>
-	<div class="footerLinks">
-		{% for page in site.pages %}
-			<a href="{{ page.url | relative_url }}" target="_self">{{ page.title }}</a>
-		{% endfor %}
-		{% if site.presskit_download_link %}
-			<a href="{{ site.presskit_download_link }}">Press Kit</a>
-		{% endif %}
+<footer class="siteFooter">
+	<div class="siteFooterInner">
+		<div class="siteFooterBrand">
+			<div class="siteFooterBrandRow">
+				<img class="siteFooterLogo" src="{{ '/assets/app-icon-512.png' | relative_url }}" alt="TCG Companion">
+				<div>
+					<p class="siteFooterName">{{ site.app_name }}</p>
+					<p class="siteFooterTagline">{{ site.tagline | default: site.app_description }}</p>
+				</div>
+			</div>
+			<div class="siteFooterSocial">
+				{% if site.instagram_username %}
+				<a href="https://instagram.com/{{ site.instagram_username }}" aria-label="Instagram">
+					<i class="fab fa-instagram"></i>
+				</a>
+				{% endif %}
+				{% if site.twitter_username %}
+				<a href="https://twitter.com/{{ site.twitter_username }}" aria-label="Twitter">
+					<i class="fab fa-twitter"></i>
+				</a>
+				{% endif %}
+				{% if site.email_address %}
+				<a href="mailto:{{ site.email_address }}" aria-label="Email">
+					<i class="fas fa-envelope"></i>
+				</a>
+				{% endif %}
+			</div>
+		</div>
+		<nav class="siteFooterNav">
+			<div>
+				<h4>Features</h4>
+				<ul>
+					<li><a href="{{ '/pokemon-card-scanner/' | relative_url }}">Pok&eacute;mon card scanner</a></li>
+					<li><a href="{{ '/pokemon-card-value-checker/' | relative_url }}">Card value checker</a></li>
+					<li><a href="{{ '/pokemon-price-checker/' | relative_url }}">Price checker</a></li>
+					<li><a href="{{ '/pokemon-card-worth-checker/' | relative_url }}">Card worth checker</a></li>
+					<li><a href="{{ '/how-much-is-my-pokemon-card-worth/' | relative_url }}">How much is my card worth?</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Popular sets</h4>
+				<ul>
+					<li><a href="{{ '/sets/destined-rivals/' | relative_url }}">Destined Rivals</a></li>
+					<li><a href="{{ '/sets/prismatic-evolutions/' | relative_url }}">Prismatic Evolutions</a></li>
+					<li><a href="{{ '/sets/journey-together/' | relative_url }}">Journey Together</a></li>
+					<li><a href="{{ '/sets/surging-sparks/' | relative_url }}">Surging Sparks</a></li>
+					<li><a href="{{ '/sets/scarlet-and-violet-151/' | relative_url }}">151</a></li>
+					<li><a href="{{ '/sets/' | relative_url }}">All Pok&eacute;mon sets</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>App</h4>
+				<ul>
+					<li><a href="{{ site.appstore_link | default: site.appstore_link_fallback }}">Download on App Store</a></li>
+					<li><a href="{{ '/' | relative_url }}">Home</a></li>
+					<li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+					{% if site.presskit_download_link %}<li><a href="{{ site.presskit_download_link }}">Press kit</a></li>{% endif %}
+					<li><a href="mailto:{{ site.email_address }}">Support</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="{{ '/privacy/' | relative_url }}">Privacy policy</a></li>
+					<li><a href="{{ '/terms/' | relative_url }}">Terms of service</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="siteFooterLegal">
+			<p>&copy; {{ site.time | date: '%Y' }} {{ site.your_name }}. Pok&eacute;mon and its trademarks are &copy; of Nintendo, Game Freak and The Pok&eacute;mon Company. This site is not affiliated with or endorsed by them.</p>
+			<p class="siteFooterMade">Made by {% if site.your_link %}<a href="{{ site.your_link }}">{% endif %}{{ site.your_name }}{% if site.your_link %}</a>{% endif %}.</p>
+		</div>
 	</div>
 </footer>

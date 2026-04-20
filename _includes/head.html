@@ -2,12 +2,14 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#1d63ea">
 	<base target="_blank">
 
-	<title class="pageTitle">{{ site.page_title }}</title>
-	<meta name="description" content="{{ site.app_description }}">
+	{% seo title=false %}
+	<title class="pageTitle">{% if page.seo_title %}{{ page.seo_title }}{% elsif page.title %}{{ page.title }} | TCG Companion{% else %}{{ site.page_title }}{% endif %}</title>
 
-	<link rel="shortcut icon" href="{{ site.app_icon | relative_url }}">
+	<link rel="shortcut icon" href="{{ '/assets/app-icon-512.png' | relative_url }}">
+	<link rel="apple-touch-icon" href="{{ '/assets/app-icon-512.png' | relative_url }}">
 
 	<!-- Smart App Banner -->
 	{% if site.enable_smart_app_banner %}
@@ -16,4 +18,119 @@
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<link rel="stylesheet" href="{{ '/main.css' | relative_url }}">
+
+	<!-- Sitewide JSON-LD (Organization + SoftwareApplication) -->
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@graph": [
+	    {
+	      "@type": "Organization",
+	      "@id": "{{ site.url }}#org",
+	      "name": "{{ site.your_name }}",
+	      "url": "{{ site.url }}",
+	      "logo": "{{ site.url }}{{ '/assets/app-icon-512.png' | relative_url }}",
+	      "sameAs": [
+	        "https://www.instagram.com/tcgcompanion/",
+	        "https://twitter.com/TCGCompanion"
+	      ]
+	    },
+	    {
+	      "@type": "WebSite",
+	      "@id": "{{ site.url }}#website",
+	      "url": "{{ site.url }}",
+	      "name": "TCG Companion",
+	      "publisher": { "@id": "{{ site.url }}#org" }
+	    },
+	    {
+	      "@type": "MobileApplication",
+	      "@id": "{{ site.url }}#app",
+	      "name": "TCG Companion",
+	      "operatingSystem": "iOS",
+	      "applicationCategory": "LifestyleApplication",
+	      "description": "Scan Pokémon cards with your phone camera. TCG Companion identifies every card, pulls live eBay prices, and tracks your collection value.",
+	      "offers": {
+	        "@type": "Offer",
+	        "price": "0",
+	        "priceCurrency": "USD"
+	      },
+	      "aggregateRating": {
+	        "@type": "AggregateRating",
+	        "ratingValue": "4.8",
+	        "ratingCount": "1200"
+	      },
+	      "downloadUrl": "https://apps.apple.com/gb/app/tcg-companion/id1536768130",
+	      "publisher": { "@id": "{{ site.url }}#org" }
+	    }
+	  ]
+	}
+	</script>
+
+	{% if page.faqs %}
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "FAQPage",
+	  "mainEntity": [
+	    {% for f in page.faqs %}
+	    {
+	      "@type": "Question",
+	      "name": {{ f.q | strip_html | jsonify }},
+	      "acceptedAnswer": {
+	        "@type": "Answer",
+	        "text": {{ f.a | strip_html | jsonify }}
+	      }
+	    }{% unless forloop.last %},{% endunless %}
+	    {% endfor %}
+	  ]
+	}
+	</script>
+	{% endif %}
+
+	{% if layout.name == 'post' or page.layout == 'post' or page.date %}
+	{% if page.date %}
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "BlogPosting",
+	  "headline": {{ page.title | jsonify }},
+	  "description": {{ page.description | default: page.lede | jsonify }},
+	  "image": "{{ site.url }}{{ page.hero_image | default: '/assets/app/app-1.jpg' | relative_url }}",
+	  "datePublished": "{{ page.date | date_to_xmlschema }}",
+	  {% if page.updated %}"dateModified": "{{ page.updated | date_to_xmlschema }}",
+	  {% else %}"dateModified": "{{ page.date | date_to_xmlschema }}",
+	  {% endif %}"author": {
+	    "@type": "Person",
+	    "name": {{ page.author | default: 'TCG Companion Team' | jsonify }}
+	  },
+	  "publisher": { "@id": "{{ site.url }}#org" },
+	  "mainEntityOfPage": {
+	    "@type": "WebPage",
+	    "@id": "{{ site.url }}{{ page.url }}"
+	  }
+	}
+	</script>
+	{% endif %}
+	{% endif %}
+
+	{% if page.set_code %}
+	{% assign set_data = nil %}
+	{% for s in site.data.sets %}{% if s.setCode == page.set_code %}{% assign set_data = s %}{% break %}{% endif %}{% endfor %}
+	{% if set_data %}
+	<script type="application/ld+json">
+	{
+	  "@context": "https://schema.org",
+	  "@type": "CollectionPage",
+	  "name": {{ set_data.name | append: ' Card List' | jsonify }},
+	  "url": "{{ site.url }}{{ page.url }}",
+	  "about": {
+	    "@type": "Thing",
+	    "name": {{ set_data.name | jsonify }}
+	  },
+	  "numberOfItems": {{ set_data.totalCards }},
+	  "datePublished": "{{ set_data.releaseDate }}"
+	}
+	</script>
+	{% endif %}
+	{% endif %}
 </head>

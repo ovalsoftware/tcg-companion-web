@@ -1,0 +1,157 @@
+---
+layout: content
+---
+
+<section class="heroWrap">
+  <div class="heroInner">
+    <div class="heroCopy">
+      {% if page.kicker %}<span class="heroKicker">{{ page.kicker }}</span>{% endif %}
+      <h1>{{ page.hero_title | default: page.title }}</h1>
+      <p class="heroLede">{{ page.hero_lede }}</p>
+      <div class="heroCtas">
+        <a class="primaryCta" href="{{ site.appstore_link }}">
+          <i class="fab fa-apple"></i>
+          <span>
+            <span class="primaryCtaSmall">Download on the</span>
+            <span class="primaryCtaLarge">App Store</span>
+          </span>
+        </a>
+        {% if page.hero_secondary_cta_href %}
+        <a class="ghostCta" href="{{ page.hero_secondary_cta_href | relative_url }}">{{ page.hero_secondary_cta_label }}</a>
+        {% endif %}
+      </div>
+      {% if page.hero_stats %}
+      <ul class="heroStats">
+        {% for stat in page.hero_stats %}
+        <li><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <div class="heroVisual">
+      {% assign hero_shot = page.hero_screenshot | default: 'app/app-1.jpg' %}
+      <div class="heroPhone">
+        <img src="{{ hero_shot | prepend: '/assets/' | relative_url }}" alt="TCG Companion app screenshot">
+      </div>
+      {% if page.hero_screenshot_secondary %}
+      <div class="heroPhone heroPhoneBack">
+        <img src="{{ page.hero_screenshot_secondary | prepend: '/assets/' | relative_url }}" alt="TCG Companion app screenshot">
+      </div>
+      {% endif %}
+      <div class="heroPhoneGlow"></div>
+    </div>
+  </div>
+</section>
+
+{% if page.benefits %}
+<section class="featureGrid">
+  <div class="featureGridHeader">
+    <h2>{{ page.benefits_title | default: 'Built for collectors' }}</h2>
+    {% if page.benefits_sub %}<p>{{ page.benefits_sub }}</p>{% endif %}
+  </div>
+  <div class="featureGridCards">
+    {% for b in page.benefits %}
+    <div class="benefitCard">
+      <span class="benefitIcon"><i class="fas fa-{{ b.icon }}"></i></span>
+      <h3>{{ b.title }}</h3>
+      <p>{{ b.description }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if page.gallery %}
+<section class="appGallery">
+  <div class="appGalleryHeader">
+    <h2>{{ page.gallery_title | default: 'See it in action' }}</h2>
+    {% if page.gallery_sub %}<p>{{ page.gallery_sub }}</p>{% endif %}
+  </div>
+  <div class="appGalleryRow">
+    {% for shot in page.gallery %}
+    <figure class="appGalleryPhone">
+      <img src="{{ shot.src | prepend: '/assets/' | relative_url }}" alt="{{ shot.caption | default: 'TCG Companion screenshot' }}" loading="lazy">
+      {% if shot.caption %}<figcaption>{{ shot.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if page.steps %}
+<section class="howItWorks">
+  <div class="howItWorksHeader">
+    <h2>{{ page.steps_title | default: 'How it works' }}</h2>
+    {% if page.steps_sub %}<p>{{ page.steps_sub }}</p>{% endif %}
+  </div>
+  <ol class="stepsList">
+    {% for step in page.steps %}
+    <li>
+      <span class="stepNum">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+      <div class="stepBody">
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+{% if page.popular_sets %}
+<section class="popularSets">
+  <div class="popularSetsHeader">
+    <h2>{{ page.popular_sets_title | default: 'Popular sets right now' }}</h2>
+    <a class="ghostLink" href="{{ '/sets/' | relative_url }}">Browse all sets &rarr;</a>
+  </div>
+  <div class="popularSetsGrid">
+    {% for s in page.popular_sets %}
+    {% assign set_data = nil %}
+    {% for sd in site.data.sets %}{% if sd.slug == s.slug %}{% assign set_data = sd %}{% break %}{% endif %}{% endfor %}
+    <a class="popularSetCard" href="{{ '/sets/' | append: s.slug | append: '/' | relative_url }}">
+      <div class="popularSetLogo">
+        {% if set_data.logoUrl %}<img src="{{ set_data.logoUrl }}" alt="{{ set_data.name }}" loading="lazy"
+          {% if set_data.symbolUrl %}onerror="this.onerror=null;this.src='{{ set_data.symbolUrl }}';this.classList.add('popularSetSymbol');"{% endif %}>
+        {% elsif set_data.symbolUrl %}<img class="popularSetSymbol" src="{{ set_data.symbolUrl }}" alt="{{ set_data.name }}" loading="lazy">{% endif %}
+      </div>
+      <h3>{{ set_data.name | default: s.name }}</h3>
+      <p>
+        {% if set_data %}{{ set_data.totalCards }} cards &middot; {{ set_data.releaseDateFormatted }}{% else %}View card list{% endif %}
+      </p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if content != '' %}
+<section class="featureLongform">
+  {{ content }}
+</section>
+{% endif %}
+
+{% if page.faqs %}
+<section class="featureFaq">
+  <h2>{{ page.faq_title | default: 'Frequently asked questions' }}</h2>
+  {% for f in page.faqs %}
+  <details>
+    <summary>{{ f.q }}</summary>
+    <p>{{ f.a }}</p>
+  </details>
+  {% endfor %}
+</section>
+{% endif %}
+
+<section class="finalCta">
+  <div class="finalCtaInner">
+    <h2>{{ page.final_cta_title | default: 'Check every card you own' }}</h2>
+    <p>{{ page.final_cta_copy | default: "Download TCG Companion on iOS and price up your first binder in minutes." }}</p>
+    <a class="primaryCta" href="{{ site.appstore_link }}">
+      <i class="fab fa-apple"></i>
+      <span>
+        <span class="primaryCtaSmall">Download on the</span>
+        <span class="primaryCtaLarge">App Store</span>
+      </span>
+    </a>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+---
+layout: content
+---
+
+{% assign set_data = nil %}
+{% for s in site.data.sets %}
+  {% if s.setCode == page.set_code %}
+    {% assign set_data = s %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign cards = site.data.cards[page.set_slug] %}
+
+<section class="setHero">
+    {% if set_data.logoUrl %}
+        <img class="setHeroLogo" src="{{ set_data.logoUrl }}" alt="{{ set_data.name }} logo" loading="lazy"
+             {% if set_data.symbolUrl %}onerror="this.onerror=null;this.src='{{ set_data.symbolUrl }}';this.classList.add('setHeroLogoFallback');"{% endif %}>
+    {% elsif set_data.symbolUrl %}
+        <img class="setHeroLogo setHeroLogoFallback" src="{{ set_data.symbolUrl }}" alt="{{ set_data.name }} symbol" loading="lazy">
+    {% endif %}
+    <h1 class="setHeroTitle">{{ set_data.name }} Card List</h1>
+    <p class="setHeroMeta">
+        {% if set_data.series %}<span>{{ set_data.series }} series</span>{% endif %}
+        {% if set_data.releaseDateFormatted %} &middot; <span>Released {{ set_data.releaseDateFormatted }}</span>{% endif %}
+        {% if cards %} &middot; <span>{{ cards.size }} cards</span>{% endif %}
+    </p>
+    <p class="setHeroCopy">
+        Browse the full {{ set_data.name }} set. Tap any card to check its value, rarity and pricing history in the <a href="https://apps.apple.com/gb/app/tcg-companion/id1536768130">TCG Companion app</a>.
+    </p>
+</section>
+
+{% if cards and cards.size > 0 %}
+<section class="cardGridSection">
+    <div class="cardGrid">
+        {% for card in cards %}
+        {% assign kw = card.name | append: ' ' | append: card.number | append: ' ' | append: set_data.name | append: ' pokemon' | url_encode %}
+        {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339039133&mkevt=1&customid=web{% endcapture %}
+        <article class="cardTile" id="{{ card.cardId }}">
+            <a class="cardTileLink" href="{{ ebay_href }}" rel="sponsored nofollow noopener" target="_blank" aria-label="Buy {{ card.name }} {{ card.number }} on eBay">
+                <div class="cardTileImageWrap">
+                    {% if card.imageUrl %}
+                    <img class="cardTileImage"
+                         src="{{ card.imageUrl }}"
+                         alt="{{ card.name }} #{{ card.number }} from {{ set_data.name }}"
+                         loading="lazy">
+                    {% else %}
+                    <div class="cardTilePlaceholder">No image</div>
+                    {% endif %}
+                </div>
+                <div class="cardTileInfo">
+                    <h3 class="cardTileName">{{ card.name }}</h3>
+                    <p class="cardTileMeta">
+                        <span class="cardTileNumber">#{{ card.number }}</span>
+                        {% if card.rarity %}<span class="cardTileRarity">{{ card.rarity }}</span>{% endif %}
+                    </p>
+                    <span class="cardTileBuy">View on eBay &rarr;</span>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% else %}
+<p class="emptyState">No cards are available for this set yet.</p>
+{% endif %}
+
+{% include vaultxAd.html %}
+
+<section class="setCta">
+    <h2>Check {{ set_data.name }} card values</h2>
+    <p>
+        Scan a card with your phone camera and get the current market price in seconds.
+        TCG Companion covers every English Pok&eacute;mon set, tracks your collection value, and spots fakes before you buy.
+    </p>
+    <a class="primaryCta" href="{{ site.appstore_link }}">Download on the App Store</a>
+    <p class="setCtaSub">
+        <a href="{{ '/sets/' | relative_url }}">Browse all sets</a>
+        &middot;
+        <a href="{{ '/pokemon-card-value-checker/' | relative_url }}">Pok&eacute;mon card value checker</a>
+    </p>
+</section>

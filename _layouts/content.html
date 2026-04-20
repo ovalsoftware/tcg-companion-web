@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+{% include head.html %}
+
+<body class="subPageBody contentPageBody">
+    <div class="contentHeaderBackground">
+        <div class="container contentContainer">
+            {% include header.html %}
+        </div>
+    </div>
+    <main class="contentMain">
+        <div class="contentInner">
+            {{ content }}
+        </div>
+    </main>
+    {% include contentFooter.html %}
+    {% include appstoreimages.html %}
+</body>
+
+</html>

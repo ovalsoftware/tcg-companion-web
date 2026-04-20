@@ -1,0 +1,20 @@
+{% comment %}
+  VaultX binder affiliate ad. Mirrors the in-app accessories promo.
+  Usage:  {% include vaultxAd.html %}
+          {% include vaultxAd.html variant="inline" %}
+{% endcomment %}
+
+{% assign variant = include.variant | default: 'block' %}
+
+<aside class="vaultxAd vaultxAd--{{ variant }}">
+  <a class="vaultxAdLink" href="https://www.vaultx.com/tcgcompanion" rel="sponsored noopener" target="_blank" aria-label="Vault X binders — 10% off with code TCGCOMPANION">
+    <div class="vaultxAdLogoWrap">
+      <img class="vaultxAdLogo" src="{{ '/assets/brand/vaultx-black-green.svg' | relative_url }}" alt="Vault X">
+    </div>
+    <div class="vaultxAdCopy">
+      <p class="vaultxAdHeadline">Premium binders built for TCG collectors</p>
+      <p class="vaultxAdSub">Use code <strong>TCGCOMPANION</strong> for <span class="vaultxAdDiscount">10% off</span> at vaultx.com</p>
+    </div>
+    <span class="vaultxAdCta">Shop binders &rarr;</span>
+  </a>
+</aside>

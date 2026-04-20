@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow:
+
+Sitemap: https://tcgcompanion.app/sitemap.xml

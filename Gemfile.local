@@ -1,0 +1,16 @@
+source "https://rubygems.org"
+
+# Local-only Gemfile. Use when Ruby 3.3+ can't build github-pages'
+# pinned nokogiri 1.15. GitHub Pages ignores this file on deploy.
+#
+#   BUNDLE_GEMFILE=Gemfile.local bundle install
+#   BUNDLE_GEMFILE=Gemfile.local bundle exec jekyll serve
+
+group :jekyll_plugins do
+  gem 'jekyll', '~> 4.3'
+  gem 'jekyll-sass-converter', '~> 3.0'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-seo-tag'
+end
+
+gem 'webrick'

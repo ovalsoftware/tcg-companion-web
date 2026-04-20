@@ -1,0 +1,74 @@
+---
+layout: content
+---
+
+<article class="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="blogPostHeader">
+    <p class="blogPostBreadcrumb">
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      {% if page.category %} &middot; <span>{{ page.category }}</span>{% endif %}
+    </p>
+    <h1 itemprop="headline">{{ page.title }}</h1>
+    {% if page.lede %}
+    <p class="blogPostLede" itemprop="description">{{ page.lede }}</p>
+    {% endif %}
+    <div class="blogPostMeta">
+      {% if page.author %}
+      <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">{{ page.author }}</span>
+      </span>
+      &middot;
+      {% endif %}
+      <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+      {% if page.updated %}
+      &middot;
+      <time itemprop="dateModified" datetime="{{ page.updated | date_to_xmlschema }}">Updated {{ page.updated | date: '%B %-d, %Y' }}</time>
+      {% endif %}
+    </div>
+    {% if page.hero_image %}
+    <figure class="blogPostHeroImage">
+      <img src="{{ page.hero_image | relative_url }}" alt="{{ page.hero_image_alt | default: page.title }}">
+      {% if page.hero_image_caption %}<figcaption>{{ page.hero_image_caption }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+  </header>
+
+  <div class="blogPostBody" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% include vaultxAd.html %}
+
+  <footer class="blogPostFooter">
+    <div class="blogPostCta">
+      <h2>Price up your Pok&eacute;mon collection</h2>
+      <p>Scan any card with your phone and see the current market value in seconds &mdash; raw plus every tracked graded tier.</p>
+      <a class="primaryCta" href="{{ site.appstore_link }}">
+        <i class="fab fa-apple"></i>
+        <span>
+          <span class="primaryCtaSmall">Download on the</span>
+          <span class="primaryCtaLarge">App Store</span>
+        </span>
+      </a>
+    </div>
+
+    {% assign related = site.posts | where_exp: 'p', 'p.url != page.url' | slice: 0, 3 %}
+    {% if related.size > 0 %}
+    <div class="blogPostRelated">
+      <h3>Keep reading</h3>
+      <ul>
+        {% for p in related %}
+        <li>
+          <a href="{{ p.url | relative_url }}">
+            <span class="blogPostRelatedDate">{{ p.date | date: '%b %Y' }}</span>
+            <span class="blogPostRelatedTitle">{{ p.title }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </footer>
+
+  <meta itemprop="image" content="{{ page.hero_image | default: '/assets/app/app-1.jpg' | prepend: site.url }}">
+</article>

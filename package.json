@@ -1,0 +1,11 @@
+{
+  "name": "tcg-companion-web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Marketing + SEO site for TCG Companion (Jekyll).",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "build": "npm run generate && BUNDLE_GEMFILE=Gemfile.local bundle exec jekyll build",
+    "serve": "BUNDLE_GEMFILE=Gemfile.local bundle exec jekyll serve"
+  }
+}
