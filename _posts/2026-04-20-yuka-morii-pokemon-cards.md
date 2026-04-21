@@ -87,7 +87,7 @@ A small selection &mdash; Morii has illustrated far more than this, but these gi
       {% for c in cards %}{% if c.cardId == item.card_id %}{% assign match = c %}{% break %}{% endif %}{% endfor %}
     {% endif %}
     {% assign kw = item.name | append: ' ' | append: item.number | append: ' ' | append: item.set_name | append: ' pokemon' | url_encode %}
-    {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339039133&mkevt=1&customid=web{% endcapture %}
+    {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339150559&mkevt=1&customid=blogyukamorii{% endcapture %}
 
     <article class="pikachuCard">
       <div class="pikachuCardImage">

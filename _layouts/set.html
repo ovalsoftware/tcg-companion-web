@@ -35,7 +35,8 @@ layout: content
     <div class="cardGrid">
         {% for card in cards %}
         {% assign kw = card.name | append: ' ' | append: card.number | append: ' ' | append: set_data.name | append: ' pokemon' | url_encode %}
-        {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339039133&mkevt=1&customid=web{% endcapture %}
+        {% assign ebay_cid = 'set' | append: page.set_slug | replace: '-', '' | replace: '_', '' %}
+        {% capture ebay_href %}https://www.ebay.com/sch/i.html?_nkw={{ kw }}&_dcat=183454&rt=nc&mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339150559&mkevt=1&customid={{ ebay_cid }}{% endcapture %}
         <article class="cardTile" id="{{ card.cardId }}">
             <a class="cardTileLink" href="{{ ebay_href }}" rel="sponsored nofollow noopener" target="_blank" aria-label="Buy {{ card.name }} {{ card.number }} on eBay">
                 <div class="cardTileImageWrap">
